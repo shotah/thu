@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Orbit">
+  <style>
+    .orbit-a,
+    .orbit-b,
+    .orbit-c {
+      transform-box: view-box;
+      transform-origin: 100px 100px;
+    }
+    .orbit-a {
+      animation: spin 3s linear infinite;
+    }
+    .orbit-b {
+      animation: spin 4.5s linear infinite reverse;
+    }
+    .orbit-c {
+      animation: spin 2.2s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .orbit-a, .orbit-b, .orbit-c { animation: none; }
+    }
+  </style>
+  <circle cx="100" cy="100" r="28" fill="#ff2bd6"/>
+  <g class="orbit-a">
+    <circle cx="100" cy="42" r="18" fill="#c8ff3d"/>
+  </g>
+  <g class="orbit-b">
+    <circle cx="158" cy="100" r="14" fill="#00f0ff"/>
+  </g>
+  <g class="orbit-c">
+    <circle cx="100" cy="158" r="22" fill="#ffd000"/>
+  </g>
+</svg>

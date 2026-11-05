@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Bars">
+  <style>
+    .bar {
+      transform-box: fill-box;
+      transform-origin: center bottom;
+      animation: eq 0.9s ease-in-out infinite;
+    }
+    .bar-1 { animation-delay: 0s; }
+    .bar-2 { animation-delay: 0.15s; }
+    .bar-3 { animation-delay: 0.3s; }
+    .bar-4 { animation-delay: 0.45s; }
+    @keyframes eq {
+      0%, 100% { transform: scaleY(0.35); }
+      50% { transform: scaleY(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bar { animation: none; }
+    }
+  </style>
+  <rect class="bar bar-1" x="30" y="60" width="28" height="100" rx="8" fill="#ff5a1f"/>
+  <rect class="bar bar-2" x="72" y="40" width="28" height="120" rx="8" fill="#ffd000"/>
+  <rect class="bar bar-3" x="114" y="50" width="28" height="110" rx="8" fill="#00f0ff"/>
+  <rect class="bar bar-4" x="156" y="70" width="28" height="90" rx="8" fill="#c8ff3d"/>
+</svg>

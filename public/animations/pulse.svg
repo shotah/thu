@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Pulse">
+  <style>
+    .pulse-ring {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: pulse 1.6s ease-in-out infinite;
+    }
+    .pulse-core {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: pulse 1.6s ease-in-out infinite 0.2s;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(0.75); opacity: 0.85; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pulse-ring, .pulse-core { animation: none; }
+    }
+  </style>
+  <circle class="pulse-ring" cx="100" cy="100" r="72" fill="#5b4dff" opacity="0.35"/>
+  <circle class="pulse-core" cx="100" cy="100" r="48" fill="#ff2d7b"/>
+</svg>

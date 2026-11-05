@@ -1,0 +1,362 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  line-height: 1.4;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+/* Themes */
+html[data-theme="neon"] {
+  --bg: #120019;
+  --fg: #fff6ff;
+  --accent: #ff2bd6;
+  --accent-2: #c8ff3d;
+  --card: #2a0438;
+  --line: rgba(255, 246, 255, 0.12);
+  --radius: 8px;
+  --gap: 8px;
+}
+
+html[data-theme="mango"] {
+  --bg: #1a0530;
+  --fg: #fff4ea;
+  --accent: #ff5a1f;
+  --accent-2: #ffd000;
+  --card: #3d1248;
+  --line: rgba(255, 244, 234, 0.14);
+  --radius: 20px;
+  --gap: 16px;
+}
+
+html[data-theme="lagoon"] {
+  --bg: #001a1c;
+  --fg: #e7fff8;
+  --accent: #00f0ff;
+  --accent-2: #ffe14a;
+  --card: #003038;
+  --line: rgba(231, 255, 248, 0.14);
+  --radius: 12px;
+  --gap: 12px;
+}
+
+html[data-theme="candy"] {
+  --bg: #ffe4f1;
+  --fg: #2a0a18;
+  --accent: #ff2d7b;
+  --accent-2: #5b4dff;
+  --card: #ffffff;
+  --line: rgba(42, 10, 24, 0.12);
+  --radius: 24px;
+  --gap: 20px;
+}
+
+.page {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+/* Top bar */
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  padding: calc(12px + env(safe-area-inset-top, 0px)) 16px 12px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.bar__title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+}
+
+.bar__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.bar__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 140px;
+}
+
+.bar__label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--fg);
+  opacity: 0.75;
+}
+
+.bar__select {
+  min-height: 44px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--fg);
+}
+
+@media (min-width: 900px) {
+  .bar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 24px;
+  }
+
+  .bar__controls {
+    flex-wrap: nowrap;
+    gap: calc(var(--gap) * 1.5);
+  }
+
+  .bar__field {
+    flex: 0 1 auto;
+    min-width: 160px;
+  }
+}
+
+/* Stage base */
+.stage {
+  flex: 1;
+  display: grid;
+  gap: var(--gap);
+  padding: var(--gap);
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+}
+
+@media (min-width: 900px) {
+  .stage {
+    padding: calc(var(--gap) * 2);
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Cards */
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  min-height: 0;
+}
+
+.card__header {
+  padding: 12px 16px 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.card__title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.card__kind {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+.card__art {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 12px;
+  background: color-mix(in srgb, var(--bg) 40%, transparent);
+}
+
+.artwork {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artwork__inline {
+  width: 100%;
+  max-width: min(100%, 320px);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.artwork__inline svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.artwork--lottie {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1;
+  min-height: 200px;
+}
+
+.artwork--lottie__host {
+  width: 100%;
+  height: 100%;
+}
+
+.artwork--lottie svg {
+  width: 100%;
+  height: 100%;
+}
+
+.artwork__fallback {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Layout: stack (default) */
+.stage[data-layout="stack"] {
+  grid-template-columns: 1fr;
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: calc(100dvh - var(--bar-height, 120px));
+}
+
+.stage[data-layout="stack"] .card {
+  scroll-snap-align: start;
+  min-height: 70dvh;
+}
+
+.stage[data-layout="stack"] .card__art {
+  min-height: 50dvh;
+}
+
+/* Layout: grid */
+.stage[data-layout="grid"] {
+  grid-template-columns: 1fr;
+}
+
+.stage[data-layout="grid"] .card__art {
+  min-height: 220px;
+  max-height: 220px;
+}
+
+@media (min-width: 480px) {
+  .stage[data-layout="grid"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .stage[data-layout="grid"] {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .stage[data-layout="grid"] {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Layout: feature */
+.stage[data-layout="feature"] {
+  grid-template-columns: 1fr;
+}
+
+.stage[data-layout="feature"] .card:first-child {
+  grid-column: 1 / -1;
+  min-height: 65dvh;
+}
+
+.stage[data-layout="feature"] .card:first-child .card__art {
+  min-height: 48dvh;
+}
+
+@media (min-width: 480px) {
+  .stage[data-layout="feature"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stage[data-layout="feature"] .card:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.stage[data-layout="feature"] .card:not(:first-child) .card__art {
+  min-height: 180px;
+}
+
+/* Layout: reel */
+.page:has(.stage[data-layout="reel"]) {
+  overflow: hidden;
+  height: 100dvh;
+}
+
+.stage[data-layout="reel"] {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  gap: var(--gap);
+  padding-bottom: calc(var(--gap) + env(safe-area-inset-bottom, 0px));
+  flex: 1;
+  max-width: none;
+  align-items: stretch;
+}
+
+.stage[data-layout="reel"] .card {
+  flex: 0 0 86vw;
+  scroll-snap-align: center;
+  min-height: 68dvh;
+  max-height: 68dvh;
+}
+
+.stage[data-layout="reel"] .card__art {
+  flex: 1;
+  min-height: 0;
+}
+
+@media (min-width: 900px) {
+  .stage[data-layout="reel"] .card {
+    flex: 0 0 340px;
+  }
+}

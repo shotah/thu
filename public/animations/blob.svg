@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Blob">
+  <style>
+    .blob {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: squish 2.4s ease-in-out infinite;
+    }
+    @keyframes squish {
+      0%, 100% { transform: scaleX(1) scaleY(1); }
+      25% { transform: scaleX(1.25) scaleY(0.78); }
+      50% { transform: scaleX(0.82) scaleY(1.2); }
+      75% { transform: scaleX(1.12) scaleY(0.88); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .blob { animation: none; }
+    }
+  </style>
+  <circle class="blob" cx="100" cy="100" r="70" fill="#ff2bd6"/>
+</svg>
